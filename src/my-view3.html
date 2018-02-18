@@ -8,28 +8,119 @@ Code distributed by Google as part of the polymer project is also
 subject to an additional IP rights grant found at http://polymer.github.io/PATENTS.txt
 -->
 
-<link rel="import" href="../bower_components/polymer/polymer-element.html">
+<link rel="import" href="../bower_components/polymer/polymer-element.html"> 
+<link rel="import" href="../bower_components/icons/index.html">
+<link rel="import" href="../bower_components/core-icon/core-icon.html">
+
+
 <link rel="import" href="shared-styles.html">
-<link rel="import" href="../bower_components/iron-ajax/iron-ajax.html">
-<link rel="import" href="../bower_components/vaadin-text-field/vaadin-text-field.html">
-<link rel="import" href="../bower_components/paper-input/paper-input.html">
-<link rel="import" href="../bower_components/paper-button/paper-button.html">
+<dom-module id="my-view3">
+  <template>
+    <style include="shared-styles">
+      :host {
+        display: block;
 
+        padding: 10px;
+      }
+    </style>
 
-<dom-module id="my-view3"> 
-<template> 
-    <form id="form" is="iron-form">
-        <paper-input id="name" pattern="[A-Z]{2}[0-9]{6}"></paper-input>
-        <paper-button on-tap="_submitForm">Submit</paper-button>
+    <div class="row">
+      <form class="employee-card">
+        <div class="form-header">
+         <h5 class="title">John Jackson
+       
+            <button class="saveBtn" on-tap="handleTap">Save</button>
+
+          </h5>
+        </div>
+        <div class="form-body">
+          <table border="0px">
+            <tr>
+              <td> Title</td>
+              <td class="secondColumn">Software Engineer</td>
+            </tr> 
+            <tr>
+              <td> Status</td>
+              <td class="secondColumn">Active</td>
+            </tr>
+            <tr>
+              <td> Location</td>
+              <td class="secondColumn">Grand Rapids</td>
+            </tr>
+          </table>
+        </div>
       </form>
+
+      <form class="employee-card">
+        <div class="form-header1">
+          <h5 class="title">Jack Johnson
+              <button class="saveBtn" on-tap="handleTap">Save</button>
+
+          </h5>
+        </div>
+        <div class="form-body">
+          <table border="0px">
+            <tr>
+              <td> Title</td>
+              <td class="secondColumn">Software Engineer</td>
+            </tr>
+            <tr>
+              <td> Status</td>
+              <td  class="secondColumn">Active</td>
+            </tr>
+            <tr>
+              <td> Location</td>
+              <td class="secondColumn"> Grand Rapids</td>
+            </tr>
+          </table>
+        </div>
+      </form>
+      <form class="employee-card">
+        <div class="form-header2">
+          <h5 class="title">
+            <img src="../images/manifest/remove_circle.png" icon="polymer">
+            <button class="saveBtn" on-tap="handleTap">Save</button>
+            Phillipy Fry</h5>
+        </div>
+        <div class="form-body">
+          <table border="0px">
+            <tr>
+              <td> Title</td>
+              <td class="secondColumn">Software Engineer</td>
+            </tr>
+            <tr>
+              <td> Status</td>
+              <td class="secondColumn" id="status">Probation</td>
+            </tr>
+            <tr>
+              <td> Location</td>
+              <td class="secondColumn" >Grand Rapids</td>
+            </tr>
+          </table>
+        </div>
+      </form>
+
+    </div>
+    </div>
+
+    <!-- Event handling  -->
+
+    
+
   </template>
 
   <script>
-    
     class MyView3 extends Polymer.Element {
       static get is() { return 'my-view3'; }
     }
-   
+  
+    Polymer({
+        is: 'my-view3',
+        handleTap: function() {
+          alert('Ow!');
+        }
+      });
+  
     window.customElements.define(MyView3.is, MyView3);
   </script>
 </dom-module>
