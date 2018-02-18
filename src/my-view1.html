@@ -1,0 +1,116 @@
+<!--
+@license
+Copyright (c) 2016 The Polymer Project Authors. All rights reserved.
+This code may only be used under the BSD style license found at http://polymer.github.io/LICENSE.txt
+The complete set of authors may be found at http://polymer.github.io/AUTHORS.txt
+The complete set of contributors may be found at http://polymer.github.io/CONTRIBUTORS.txt
+Code distributed by Google as part of the polymer project is also
+subject to an additional IP rights grant found at http://polymer.github.io/PATENTS.txt
+-->
+
+<link rel="import" href="../bower_components/polymer/polymer-element.html"> 
+
+<link rel="import" href="shared-styles.html">
+<dom-module id="my-view1">
+  <template>
+    <style include="shared-styles">
+      :host {
+        display: block;
+
+        padding: 10px;
+      }
+    </style>
+
+    <div class="row">
+      <form class="employee-card">
+        <div class="form-header">
+         <h5 class="title">John Jackson
+         </h5>
+        </div>
+        <div class="form-body">
+          <table border="0px">
+            <tr>
+              <td> Title</td>
+              <td class="secondColumn">Software Engineer</td>
+            </tr> 
+            <tr>
+              <td> Status</td>
+              <td class="secondColumn">Active</td>
+            </tr>
+            <tr>
+              <td> Location</td>
+              <td class="secondColumn">Grand Rapids</td>
+            </tr>
+          </table>
+        </div>
+      </form>
+
+      <form class="employee-card">
+        <div class="form-header1">
+          <h5 class="title">Jack Johnson</h5>
+        </div>
+        <div class="form-body">
+          <table border="0px">
+            <tr>
+              <td> Title</td>
+              <td class="secondColumn">Software Engineer</td>
+            </tr>
+            <tr>
+              <td> Status</td>
+              <td  class="secondColumn">Active</td>
+            </tr>
+            <tr>
+              <td> Location</td>
+              <td class="secondColumn"> Grand Rapids</td>
+            </tr>
+          </table>
+        </div>
+      </form>
+      <form class="employee-card">
+        <div class="form-header2">
+          <h5 class="title">  <iron-icon icon="mail" slot="prefix"></iron-icon>Phillipy Fry</h5>
+        </div>
+        <div class="form-body">
+          <table border="0px">
+            <tr>
+              <td> Title</td>
+              <td class="secondColumn">Software Engineer</td>
+            </tr>
+            <tr>
+              <td> Status</td>
+              <td class="secondColumn" id="status">Probation</td>
+            </tr>
+            <tr>
+              <td> Location</td>
+              <td class="secondColumn" >Grand Rapids</td>
+            </tr>
+          </table>
+        </div>
+      </form>
+
+    </div>
+    </div>
+
+    <!-- Event handling  -->
+
+    <div>
+        <button on-tap="handleTap">Kick Me</button>
+    </div>
+
+  </template>
+
+  <script>
+    class MyView1 extends Polymer.Element {
+      static get is() { return 'my-view1'; }
+    }
+  
+    Polymer({
+        is: 'my-view1',
+        handleTap: function() {
+          alert('Ow!');
+        }
+      });
+  
+    window.customElements.define(MyView1.is, MyView1);
+  </script>
+</dom-module>
