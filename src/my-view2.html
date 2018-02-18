@@ -11,12 +11,6 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 <link rel="import" href="../bower_components/polymer/polymer-element.html">
 <link rel="import" href="shared-styles.html">
 <link rel="import" href="../bower_components/iron-ajax/iron-ajax.html">
-<link rel="import" href="../bower_components/vaadin-text-field/vaadin-text-field.html">
-<link rel="import" href="../bower_components/paper-input/paper-input.html">
-
-<link rel="import" href="../bower_components/paper-button/paper-button.html">
-
-
 <dom-module id="my-view2">
   <template>
     <style include="shared-styles">
@@ -29,70 +23,44 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     <iron-ajax auto url="http://localhost:3000/posts" handle-as="json" last-response="{{response}}">
 
     </iron-ajax>
+    <iron-ajax method="POST" id='ajax' url="http://localhost:3000/posts" body="{{ajaxParams}}"> </iron-ajax>
+
     <template is="dom-repeat" items="{{response}}">
-     
+
       <div class="row">
-          <form class="employee-card">
-            <div class="form-header">
-              <h5 class="title">{{item.name}}</h5>
-            </div>
-            <div class="form-body">
-              <table border="0px">
-                <tr>
-                  <td> Title</td>
-                  <td class="secondColumn">{{item.title}} </td>
-                </tr>
-                <tr>
-                  <td> Status</td>
-                  <td class="secondColumn">{{item.status}}</td>
-                </tr>
-                <tr>
-                  <td> Location</td>
-                  <td class="secondColumn">{{item.location}}</td>
-                </tr>
-              </table>
-            </div>
-          </form>
-        </div>
-    </template>
-    <div>
-      <form name= "myForm" action="submit" method="GET" >
-      <vaadin-text-field class="textField" label="Employee Id" name="empId"> </vaadin-text-field>
-     <div>
-        <button class="searchBtn" onclick="_submit()" >Search</button>
+        <form class="employee-card">
+          <div class="form-header">
+            <!-- TO DO Check  Employee Status and Decide wich UI to use II could not get time to complete -->
+            <label class="title" ng-value="{{item.name}}">{{item.name}}</label>
+          </div>
+          <div class="form-body">
+            <table border="0px">
+              <tr>
+                <td> Title</td>
+                <td>
+                  <label ng-value="{{item.title}}" class="secondColumn">{{item.title}} </label>
+                </td>
+              </tr>
+              <tr>
+                <td> Status</td>
+                <td>
+                  <label ng-value="{{item.status}}" class="secondColumn">{{item.status}}</label>
+                </td>
+              </tr>
+              <tr>
+                <td> Location</td>
+                <td>
+                  <label ng-value="{{item.location}}" class="secondColumn">{{item.location}}</label>
+                </td>
+              </tr>
+            </table>
+          </div>
+        </form>
       </div>
-      </form>
-    </div>
+    </template>
 
-<!-- New Input -->
-</template>
-
-<template> 
-    <form is="iron-form" id="form" method="post">
-      <paper-input name="name" label="name" id="name"></paper-input>
-      <paper-button raised on-click="submitForm">Submit</paper-button>
-    </form>
   </template>
-  <script type="text/javascript">
-      Polymer({
-          is: "my-form",
-          submitForm: function() {
-              alert(this.$.name.value);
-              if(this.$.name.value != "") // whatever input check
-                 this.$.form.submit();
-          }
-      })
-  </script>
-
   <script>
-    function _submit() {
-
-    alert('why');
-
-    
-    };
-
-
     class MyView2 extends Polymer.Element {
       static get is() { return 'my-view2'; }
     }

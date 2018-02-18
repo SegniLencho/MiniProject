@@ -8,9 +8,12 @@ Code distributed by Google as part of the polymer project is also
 subject to an additional IP rights grant found at http://polymer.github.io/PATENTS.txt
 -->
 
-<link rel="import" href="../bower_components/polymer/polymer-element.html"> 
+<link rel="import" href="../bower_components/polymer/polymer-element.html">
 <link rel="import" href="../bower_components/icons/index.html">
 <link rel="import" href="../bower_components/core-icon/core-icon.html">
+<link rel="import" href="../bower_components/paper-button/paper-button.html">
+<link rel="import" href="../bower_components/paper-input/paper-input.html">
+
 
 
 <link rel="import" href="shared-styles.html">
@@ -27,8 +30,8 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     <div class="row">
       <form class="employee-card">
         <div class="form-header">
-         <h5 class="title">John Jackson
-       
+          <h5 class="title">John Jackson
+
             <button class="saveBtn" on-tap="handleTap">Save</button>
 
           </h5>
@@ -38,7 +41,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
             <tr>
               <td> Title</td>
               <td class="secondColumn">Software Engineer</td>
-            </tr> 
+            </tr>
             <tr>
               <td> Status</td>
               <td class="secondColumn">Active</td>
@@ -54,7 +57,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       <form class="employee-card">
         <div class="form-header1">
           <h5 class="title">Jack Johnson
-              <button class="saveBtn" on-tap="handleTap">Save</button>
+            <button class="saveBtn" on-tap="submitForm">Save</button>
 
           </h5>
         </div>
@@ -66,7 +69,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
             </tr>
             <tr>
               <td> Status</td>
-              <td  class="secondColumn">Active</td>
+              <td class="secondColumn">Active</td>
             </tr>
             <tr>
               <td> Location</td>
@@ -94,7 +97,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
             </tr>
             <tr>
               <td> Location</td>
-              <td class="secondColumn" >Grand Rapids</td>
+              <td class="secondColumn">Grand Rapids</td>
             </tr>
           </table>
         </div>
@@ -105,22 +108,23 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
     <!-- Event handling  -->
 
-    
+
 
   </template>
 
+  
   <script>
     class MyView3 extends Polymer.Element {
       static get is() { return 'my-view3'; }
     }
-  
+
     Polymer({
-        is: 'my-view3',
-        handleTap: function() {
-          alert('Ow!');
-        }
-      });
-  
+      is: 'my-view3',
+      handleTap: function () {
+        alert('Data Saved !');
+      }
+    });
+
     window.customElements.define(MyView3.is, MyView3);
   </script>
 </dom-module>
